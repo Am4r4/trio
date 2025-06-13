@@ -1,0 +1,202 @@
+BIENVENUE DANS LA VILLE DE BOBO-DIOULASSO <br> VEILLEZ LIRE ET REMPLIR SOIGNEUSEMENT VOTRE FORMULAIRE
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation d'Hôtel</title>
+  <style>
+    /* Réinitialisation des marges et paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Style général */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #40e0d0;
+      color: black;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Conteneur principal */
+    .overlay {
+      background: #d3d3d3 ;
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 650px;
+      margin: auto;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Titre du formulaire */
+    .titre-formulaire {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      color: #ff6600;
+      margin-bottom: 15px;
+    }
+
+    /* Slogan */
+    .slogan {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    /* Badges */
+    .badge-confiance, .bonus {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .badge-confiance {
+      background-color: #28a745;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      display: inline-block;
+    }
+
+    .bonus {
+      color: #d4af37;
+      font-size: 14px;
+    }
+
+    /* Styles des labels et champs de formulaire */
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    /* Boutons */
+    .btn-reserver, .btn-annuler {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    .btn-reserver {
+      background-color: #008CBA;
+      color: white;
+    }
+
+    .btn-annuler {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    .btn-reserver:hover {
+      background-color: #005f73;
+    }
+
+    .btn-annuler:hover {
+      background-color: #cc0000;
+    }
+    #entete  {
+      animation: entete s infinite;
+      box-shadow:100px ;
+      background-color: blue;
+
+    }
+  
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <h2 class="titre-formulaire">
+      <strong> 
+        <marquee>Formulaire de reservation</marquee>
+      </strong>
+     </h2>
+
+    <h2 class="titre-formulaire">Réservez votre séjour de rêve ✨</h2>
+    <p class="slogan">Des vacances inoubliables, une réservation en toute sérénité.</p>
+    <p class="badge-confiance">✅ +500 clients satisfaits, et vous ?</p>
+  
+    <form>
+      <label>Nom complet</label>
+      <input type="text" name="nom" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Numéro de téléphone</label>
+      <input type="tel" name="telephone" required>
+
+      <label>Date d'arrivée</label>
+      <input type="date" name="arrivee" required>
+
+      <label>Date de départ</label>
+      <input type="date" name="depart" required>
+
+      <label>Type de chambre</label>
+      <select name="chambre" required>
+        <option value="">--Choisir--</option>
+        <option value="standard">Standard</option>
+        <option value="deluxe">Deluxe</option>
+        <option value="suite">Suite</option>
+      </select>
+
+      <label>Nombre de personnes</label>
+      <input type="number" name="personnes" min="1" required>
+
+      <label>Nombre de nuit</label>
+      <input type="number" name="nuit" min="1" required>
+
+      <label>Demandes spéciales (ex: lit bébé, chambre calme...)</label>
+      <textarea name="demandes" rows="2"></textarea>
+
+      <label>Allergies ou restrictions alimentaires</label>
+      <textarea name="allergies" rows="2"></textarea>
+
+      <label>Accès aux services :</label>
+      <label><input type="checkbox" name="services" value="spa"> Spa</label>
+      <label><input type="checkbox" name="services" value="piscine"> Piscine</label>
+      <label><input type="checkbox" name="services" value="salle-sport"> Salle de sport</label>
+
+      <label>Message ou demande spéciale</label>
+      <textarea name="message" rows="4"></textarea>
+
+      <button type="submit" class="btn-reserver">Réserver maintenant</button>
+      <button type="button" class="btn-annuler" onclick="annulerReservation()">Annuler la réservation</button>
+    </form>
+
+    <p>Besoin d'aide ? Notre équipe est disponible 24h/24 (Numéro mobile de l'hôtel : +226 12345678)</p>
+    <p>CODE WiFi disponible : Hotelderêve</p>
+    <p class="bonus">🍾 Une boisson offerte pour toute réservation aujourd’hui !</p>
+    <p>NOUS VOUS REMERCIONS POUR VOTRE CONFIANCE.</p>
+
+  </div>
+
+  <script>
+    function annulerReservation() {
+      if (confirm("Êtes-vous sûr(e) de vouloir annuler votre réservation ?")) {
+        window.location.reload();
+      }
+    }
+  </script>
+ <footer>
+  <p class="copyright">© 2025 Ville de Bobo-Dioulasso - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
